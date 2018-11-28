@@ -6,6 +6,8 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {createTranslateLoader} from './app.translate.factory';
 import {environment} from '../environments/environment';
+import {CoreModule} from './core/core.module';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
@@ -15,6 +17,8 @@ import {environment} from '../environments/environment';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    CoreModule,
+    SharedModule,
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
