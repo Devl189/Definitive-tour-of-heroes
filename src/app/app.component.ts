@@ -8,6 +8,7 @@ import {TranslateService} from '@ngx-translate/core';
 })
 export class AppComponent {
   public title = 'tour_of_heroes';
+
   constructor(@Inject('defaultLanguage') private defaultLanguage: string,
               private translate: TranslateService) {
     translate.setDefaultLang(defaultLanguage);
