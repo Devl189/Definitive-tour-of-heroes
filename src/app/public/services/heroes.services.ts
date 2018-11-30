@@ -11,7 +11,7 @@ export class HeroesServices extends BaseService<Hero[]> {
   }
 
   findHeroes(): Observable<any> {
-    this.messageService.add('HeroService: fetched heroes');
+    this.messageService.messages.length > 0 ? this.messageService.clear() : this.messageService.add('HeroService: fetched heroes');
     return this.findAll();
   }
 }

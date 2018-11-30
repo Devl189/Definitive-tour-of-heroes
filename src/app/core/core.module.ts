@@ -3,8 +3,12 @@ import {throwIfAlreadyLoaded} from './guards/module-import.guard';
 import {SharedModule} from '../shared/shared.module';
 import {MessagesComponent} from './components/messages/messages.component';
 import {MessageService} from './services/message.service';
+import {DashboardComponent} from './components/dashboard/dashboard.component';
 
-const coreComponents = [MessagesComponent];
+const coreComponents = [
+  MessagesComponent,
+  DashboardComponent
+];
 @NgModule({
   imports: [SharedModule],
   exports: coreComponents,

@@ -1,5 +1,8 @@
 export const paths = {
   root: '',
   none: '**',
-  heroes: 'heroes'
+  heroes: 'heroes',
+  dashboard: 'dashboard',
+  detail: 'detail',
+  id: ':id',
 };

@@ -1,0 +1,9 @@
+<h3>Top Heroes</h3>
+<div class="grid grid-pad topHeroes">
+  <a *ngFor="let hero of topHeroes" class="col-1-4"
+  (click)="goToHeroDetail(hero.id)">
+    <div class="module hero">
+      <h4>{{hero.name}}</h4>
+    </div>
+  </a>
+</div>

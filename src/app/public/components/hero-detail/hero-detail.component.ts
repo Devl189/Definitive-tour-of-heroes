@@ -1,5 +1,8 @@
-import {Component, Input} from '@angular/core';
+import {Component} from '@angular/core';
 import {Hero} from '../../../core/models/core-api';
+import {HeroesServices} from '../../services/heroes.services';
+import {ActivatedRoute, Router} from '@angular/router';
+import {paths} from '../../../app-settings-definitions/path.definition';
 
 @Component({
   selector: 'app-hero-detail',
@@ -7,9 +10,24 @@ import {Hero} from '../../../core/models/core-api';
 })
 export class HeroDetailComponent {
 
-  constructor() {
+  public hero: Hero;
+
+  constructor(private heroesServices: HeroesServices,
+              private _route: ActivatedRoute,
+              private router: Router) {
+    this._route.params.subscribe(params => {
+      const id = params['id'];
+      this.heroesServices.findById(id).subscribe(hero => {
+        this.hero = hero;
+      });
+    });
   }
 
-  @Input() hero: Hero;
-
+  goBack(): void {
+    this.router.navigate([paths.heroes])
+      .catch(err => {
+        console.log(`Error navigating to ${paths.heroes}`);
+        console.log(err);
+      });
+  }
 }

@@ -29,4 +29,13 @@ export abstract class BaseService<T> {
   public findAll(params?: HttpParams): Observable<T | T[]> {
     return this._httpClient.get<T | T[]>(this._baseUrl, {params});
   }
+
+  /**
+   * Find an object by its identifier
+   * @param id Object identifier
+   * @returns gets the object found
+   */
+  public findById(id: any): Observable<T> {
+    return this._httpClient.get<T>(`${this._baseUrl}/${id}`);
+  }
 }
