@@ -18,11 +18,11 @@ import {injectorRef} from './core/utiles/injectorRef';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     CoreModule,
     SharedModule,
     PublicModules,
-    HttpClientModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

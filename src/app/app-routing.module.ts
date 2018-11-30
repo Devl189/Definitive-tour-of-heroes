@@ -1,10 +1,19 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {paths} from './app-settings-definitions/path.definition';
+import {HeroesComponent} from './public/components/heroes/heroes.component';
 
-const routes: Routes = [];
+const rootRoutes: Routes = [
+  {path: paths.root, redirectTo: paths.heroes, pathMatch: 'full'},
+  {
+    path: paths.heroes,
+    component: HeroesComponent
+  },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(rootRoutes, {useHash: true})],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
