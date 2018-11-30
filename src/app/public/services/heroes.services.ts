@@ -14,4 +14,16 @@ export class HeroesServices extends BaseService<Hero[]> {
     this.messageService.messages.length > 0 ? this.messageService.clear() : this.messageService.add('HeroService: fetched heroes');
     return this.findAll();
   }
+
+  updateHero(hero: Hero): Observable<Hero> {
+    return this._httpClient.put<Hero>(`${this._baseUrl}/${hero.id}`, hero);
+  }
+
+  addNewHero(nameHero: string): Observable<Hero> {
+    return this._httpClient.post<Hero>(`${this._baseUrl}`, {name: nameHero});
+  }
+
+  deleteHero(id: any) {
+    return this._httpClient.delete<>(`${this._baseUrl}/${id}`);
+  }
 }

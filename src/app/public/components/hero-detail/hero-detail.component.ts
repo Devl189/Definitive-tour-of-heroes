@@ -12,12 +12,12 @@ export class HeroDetailComponent {
 
   public hero: Hero;
 
-  constructor(private heroesServices: HeroesServices,
+  constructor(private heroesService: HeroesServices,
               private _route: ActivatedRoute,
               private router: Router) {
     this._route.params.subscribe(params => {
       const id = params['id'];
-      this.heroesServices.findById(id).subscribe(hero => {
+      this.heroesService.findById(id).subscribe(hero => {
         this.hero = hero;
       });
     });
@@ -29,5 +29,12 @@ export class HeroDetailComponent {
         console.log(`Error navigating to ${paths.heroes}`);
         console.log(err);
       });
+  }
+
+  save() {
+    this.heroesService.updateHero(this.hero).subscribe( hero => {
+        this.hero = hero;
+      }
+    );
   }
 }
