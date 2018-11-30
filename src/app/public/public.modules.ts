@@ -17,4 +17,5 @@ const publicComponents = [
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
-export class PublicModules {}
+export class PublicModules {
+}

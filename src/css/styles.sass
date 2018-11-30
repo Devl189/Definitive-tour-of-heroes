@@ -14,7 +14,7 @@ h2, h3
 body
   margin: $margin
 
-body, input, button
+body, input[text], button
   font-family: $font-family__b
   color: $color-grey
 
@@ -68,3 +68,33 @@ body, input, button
   height: 1.8em
   margin-right: .8em
   border-radius: 4px 0 0 4px
+
+.messages h2
+  color: red
+  font-family: $font-family__a
+  font-weight: lighter
+
+.messages body
+  margin: 2em
+
+.messages body, input[text], button
+  color: crimson
+  font-family: $font-family__b
+
+.messages button.clear
+  font-family: $font-family__default
+  background-color: #eee
+  border: none
+  padding: 5px 10px
+  border-radius: 4px
+  cursor: pointer
+  color: #888
+  margin-bottom: 12px
+
+.messages button:hover
+  background-color: #cfd8dc
+
+.messages button:disabled
+  background-color: #eee
+  color: #aaa
+  cursor: auto
