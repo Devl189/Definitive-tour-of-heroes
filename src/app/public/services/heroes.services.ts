@@ -19,11 +19,11 @@ export class HeroesServices extends BaseService<Hero[]> {
     return this._httpClient.put<Hero>(`${this._baseUrl}/${hero.id}`, hero);
   }
 
-  addNewHero(nameHero: string): Observable<Hero> {
-    return this._httpClient.post<Hero>(`${this._baseUrl}`, {name: nameHero});
+  addNewHero(nameHero: string): Observable<any> {
+    return this._httpClient.post<any>(`${this._baseUrl}`, {name: nameHero});
   }
 
-  deleteHero(id: any) {
-    return this._httpClient.delete<>(`${this._baseUrl}/${id}`);
+  deleteHero(id: any): Observable<any> {
+    return this._httpClient.delete<any>(`${this._baseUrl}/${id}`);
   }
 }

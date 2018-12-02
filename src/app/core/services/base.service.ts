@@ -35,7 +35,7 @@ export abstract class BaseService<T> {
    * @param id Object identifier
    * @returns gets the object found
    */
-  public findById(id: any): Observable<T> {
-    return this._httpClient.get<T>(`${this._baseUrl}/${id}`);
+  public findById(id: any): Observable<any> {
+    return this._httpClient.get<any>(`${this._baseUrl}/${id}`);
   }
 }
