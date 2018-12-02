@@ -5,10 +5,14 @@
 const server = 'http://localhost:3000/';
 
 export const environment = {
+  // is used to define whether or not the project is in production
   production: false,
   envName: 'local',
-  defaultLanguage: 'en',
   server: server,
+  buildVersion: '1.0.0-SNAPSHOT',
+  buildTimestamp: new Date().toISOString(),
+  // Defines the default language for translations
+  defaultLanguage: 'en',
 };
 
 /*

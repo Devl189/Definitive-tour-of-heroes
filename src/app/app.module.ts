@@ -33,6 +33,7 @@ import {injectorRef} from './core/utiles/injectorRef';
   ],
   providers: [
     {provide: 'defaultLanguage', useValue: environment.defaultLanguage},
+    {provide: 'LOCALSTORAGE', useFactory: getLocalStorage},
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
@@ -43,3 +44,8 @@ export class AppModule {
     injectorRef(injector);
   }
 }
+
+export function getLocalStorage() {
+  return (typeof window !== 'undefined') ? window.localStorage : null;
+}
+
