@@ -44,7 +44,9 @@ export class HeroesComponent {
   }
 
   public addNewHero() {
-    this.heroesService.addNewHero(this.heroName).subscribe(() => {
+    const newHero: Hero = new Hero();
+    newHero.name = this.heroName;
+    this.heroesService.create(newHero).subscribe(() => {
         this.heroName = null;
         this.showDataHero();
         this.getHeroes();
@@ -57,7 +59,7 @@ export class HeroesComponent {
   }
 
   public deleteHero(id) {
-    this.heroesService.deleteHero(id).subscribe(() => {
+    this.heroesService.remove(id).subscribe(() => {
       this.getHeroes();
     });
   }

@@ -35,7 +35,35 @@ export abstract class BaseService<T> {
    * @param id Object identifier
    * @returns gets the object found
    */
-  public findById(id: any): Observable<any> {
-    return this._httpClient.get<any>(`${this._baseUrl}/${id}`);
+  public findById(id: any): Observable<T> {
+    return this._httpClient.get<T>(`${this._baseUrl}/${id}`);
+  }
+
+  /**
+   * Create the object
+   * @param {T} obj Object to create
+   * @returns {Observable<T>} Observable of the result
+   */
+  public create(obj: T | T[]): Observable<T | T[]> {
+    return this._httpClient.post<T | T[]>(this._baseUrl, obj);
+  }
+
+  /**
+   * Update the object
+   * @param {T} obj Object to update
+   * @param {K} key Key to identify the object
+   * @returns {Observable<T>} Observable of the result
+   */
+  public update<K extends keyof T>(obj: T, key: K): Observable<T> {
+    return this._httpClient.put<T>(`${this._baseUrl}/${obj[key]}`, obj);
+  }
+
+  /**
+   * Delete a specific object by id
+   * @param id Object id
+   * @returns {Observable<T>} Observable of the result
+   */
+  public remove(id: any): Observable<T> {
+    return this._httpClient.delete<T>(`${this._baseUrl}/${id}`);
   }
 }

@@ -4,6 +4,7 @@ import {SharedModule} from '../shared/shared.module';
 import {MessagesComponent} from './components/messages/messages.component';
 import {MessageService} from './services/message.service';
 import {DashboardComponent} from './components/dashboard/dashboard.component';
+import {BroadcasterService} from './services/broadcaster.service';
 
 const coreComponents = [
   MessagesComponent,
@@ -13,7 +14,7 @@ const coreComponents = [
   imports: [SharedModule],
   exports: coreComponents,
   declarations: coreComponents,
-  providers: [MessageService],
+  providers: [MessageService, BroadcasterService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CoreModule {

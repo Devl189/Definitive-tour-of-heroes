@@ -3,6 +3,7 @@ import {Hero} from '../../models/core-api';
 import {HeroesServices} from '../../../public/services/heroes.services';
 import {Router} from '@angular/router';
 import {paths} from '../../../app-settings-definitions/path.definition';
+import {BroadcasterService} from '../../services/broadcaster.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,8 +13,15 @@ export class DashboardComponent {
   public topHeroes: Hero[];
 
   constructor(private heroesService: HeroesServices,
-              private router: Router) {
+              private router: Router,
+              private _broadcastService: BroadcasterService) {
     this.getHeroes();
+    this._broadcastService.on('loco')
+      .subscribe((visible) => {
+        console.log(visible);
+      }, error2 => {
+        console.log(error2);
+      });
   }
 
 

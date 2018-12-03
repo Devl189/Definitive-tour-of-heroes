@@ -32,7 +32,7 @@ export class HeroDetailComponent {
   }
 
   save() {
-    this.heroesService.updateHero(this.hero).subscribe( hero => {
+    this.heroesService.update(this.hero, 'id').subscribe( hero => {
         this.hero = hero;
       }
     );
