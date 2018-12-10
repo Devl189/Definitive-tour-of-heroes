@@ -2,7 +2,7 @@ import {SharedModule} from '../shared/shared.module';
 import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 import {HeroesComponent} from './components/heroes/heroes.component';
 import {HeroesServices} from './services/heroes.services';
-import {HeroDetailComponent} from './components/hero-detail/hero-detail.component';
+import {HeroDetailComponent} from './components/hero-details/hero-details.component';
 
 const publicComponents = [
   HeroesComponent,

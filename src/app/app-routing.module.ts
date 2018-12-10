@@ -3,7 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {paths} from './app-settings-definitions/path.definition';
 import {HeroesComponent} from './public/components/heroes/heroes.component';
 import {DashboardComponent} from './core/components/dashboard/dashboard.component';
-import {HeroDetailComponent} from './public/components/hero-detail/hero-detail.component';
+import {HeroDetailComponent} from './public/components/hero-details/hero-details.component';
 
 const rootRoutes: Routes = [
   {path: paths.root, redirectTo: paths.dashboard, pathMatch: 'full'},

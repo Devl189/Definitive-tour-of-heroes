@@ -6,7 +6,7 @@ import {paths} from '../../../app-settings-definitions/path.definition';
 
 @Component({
   selector: 'app-hero-detail',
-  templateUrl: './hero-detail.component.html'
+  templateUrl: './hero-details.component.html'
 })
 export class HeroDetailComponent {
 

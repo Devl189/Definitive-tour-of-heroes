@@ -1,31 +1,30 @@
 <h2>My Heroes</h2>
-<button (click)="goDashboad()" style="float: right;margin-top: -3.6%;margin-right: 79%;">
-  Go to dashboard
-</button>
-<ul class="heroes">
-  <div *ngFor="let hero of heroes">
+<p-button (click)="goDashboad()" class="buttonGoToDashboard" label="Go to dashboard">
+</p-button>
+
+<ul class="ui-g heroes" *ngFor="let hero of heroes">
+  <div class="ui-g-2">
     <li>
       <a (click)="goToHeroDetail(hero.id)">
         <span class="badge">{{hero.id}}</span> {{hero.name}}
       </a>
     </li>
-    <button (click)="deleteHero(hero.id)" style="margin-left: 3%;">
-      Delete hero
-    </button>
+  </div>
+  <div class="ui-g-1">
+    <p-button (click)="deleteHero(hero.id)" class="deleteButton"
+              label="Delete hero" styleClass="ui-button-danger">
+    </p-button>
   </div>
 </ul>
 
-<button (click)="showDataHero()" style="margin-bottom: 2%">
-  + Add new hero
-</button>
+<p-button (click)="showDataHero()" class="addNewHeroButton" label="+ Add new hero"></p-button>
 
-<div *ngIf="showAddNewHero">
-  <label>name:
-    <input [(ngModel)]="heroName" placeholder="name"/>
+<div *ngIf="showAddNewHero" class="infoNewHero">
+  <label>Name:
+    <input [(ngModel)]="heroName" placeholder="hero name"/>
   </label>
 
-  <button (click)="addNewHero()" style="margin-bottom: 2%"
-          [disabled]="CommonUtil.isEmpty(heroName)">
-    Save new hero
+  <button pButton label="Save new hero"
+          (click)="addNewHero()" class="saveNewHeroButton" [disabled]="isEmptyHeroName()">
   </button>
 </div>

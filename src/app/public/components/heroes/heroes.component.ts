@@ -14,7 +14,6 @@ export class HeroesComponent {
   public heroes: Hero[];
   public showAddNewHero = false;
   public heroName: string;
-  public CommonUtil = CommonUtil;
 
   constructor(private heroesService: HeroesServices,
               private router: Router) {
@@ -22,7 +21,7 @@ export class HeroesComponent {
   }
 
   private getHeroes() {
-    this.heroesService.findHeroes().subscribe((heroes: Hero[]) => {
+    this.heroesService.findAll().subscribe((heroes: Hero[]) => {
       this.heroes = heroes;
     });
   }
@@ -62,5 +61,9 @@ export class HeroesComponent {
     this.heroesService.remove(id).subscribe(() => {
       this.getHeroes();
     });
+  }
+
+  public isEmptyHeroName() {
+    return CommonUtil.isEmpty(this.heroName);
   }
 }

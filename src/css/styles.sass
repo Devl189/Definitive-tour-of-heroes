@@ -1,15 +1,16 @@
 @charset "utf-8"
 @import 'variables.sass'
 
+/* Elements shared by all components of the application */
 h1
-  color: #999
-  margin-bottom: 0
-  font-size: $font-size
+  color: $color-light-grey
+  margin-bottom: $margin-zero
+  font-size: $h1-font-size
 
 h2, h3
-  font-size: 2em
-  margin-top: 0
-  padding-top: 0
+  font-size: $h2-h3-font-size
+  margin-top: $margin-zero
+  padding-top: $margin-zero
 
 body
   margin: $margin
@@ -18,103 +19,91 @@ body, input[text], button
   font-family: $font-family__b
   color: $color-grey
 
+body
+  margin: $margin-zero
+
 *
   font-family: $font-family__a
 
 nav a
   padding: 5px 10px
-  text-decoration: none
+  text-decoration: $none-tex-decoration
   margin-top: 10px
   display: inline-block
-  background-color: #eee
+  background-color: $bg-color-white__a
   border-radius: 4px
 
 nav a:visited, a:link
-  color: #607d8b
+  color: $color-blue-grey
 
 nav a:hover
-  color: #039be5
-  background-color: #cfd8dc
+  color: $color-blue
+  background-color: $bg-color-white__b
 
 nav a.active
-  color: #039be5
+  color: $color-blue
 
 /* Style for a heroes component */
 .heroes
-  margin: $margin-heroes
   list-style-type: none
   padding: 0
-  width: 15em
 
 .heroes li
   cursor: pointer
   position: relative
   left: 0
-  background-color: #EEE
-  margin: .5em
+  background-color: $bg-color-white__a
   padding: .3em 0
-  height: 1.6em
   border-radius: 4px
+  height: 2.3em
 
 .heroes li:hover
-  color: #607D8B
-  background-color: #DDD
+  color: $color-blue-grey
+  background-color: $bg-color-white__c
   left: .1em
 
 .heroes a
-  color: #888
-  text-decoration: none
+  color: $color-grey
+  text-decoration: $none-tex-decoration
   position: relative
   display: block
   width: 250px
 
 .heroes a:hover
-  color: #607D8B
+  color: $color-blue-grey
 
 .heroes .badge
   display: inline-block
   font-size: small
-  color: white
+  color: $color-white-grey
   padding: 0.8em 0.7em 0 0.7em
-  background-color: #607D8B
+  background-color: $color-blue-grey
   line-height: 1em
   position: relative
   left: -1px
-  top: -4px
-  height: 1.8em
+  top: -5px
+  height: 2.8em
   margin-right: .8em
   border-radius: 4px 0 0 4px
 
-.messages h2
-  color: red
-  font-family: $font-family__a
-  font-weight: lighter
+.buttonGoToDashboard
+  float: right
+  margin-top: -3.9%
+  margin-right: 76%
 
-.messages body
-  margin: 2em
+.deleteButton
+  margin-top: 3% !important
 
-.messages body, input[text], button
-  color: crimson
-  font-family: $font-family__b
+.addNewHeroButton
+  margin-bottom: 2%
 
-.messages button.clear
-  font-family: $font-family__default
-  background-color: #eee
-  border: none
-  padding: 5px 10px
-  border-radius: 4px
-  cursor: pointer
-  color: #888
-  margin-bottom: 12px
+.saveNewHeroButton
+  margin-left: 1% !important
 
-.messages button:hover
-  background-color: #cfd8dc
+.infoNewHero
+  margin-bottom: 2% !important
 
-.messages button:disabled
-  background-color: #eee
-  color: #aaa
-  cursor: auto
-
+/* Style for a dashboard component*/
 .topHeroes [class*='col-']
   float: left
   padding-right: 20px
@@ -124,7 +113,7 @@ nav a.active
   padding-right: 0
 
 .topHeroes a
-  text-decoration: none
+  text-decoration: $none-tex-decoration
 
 .topHeroes *, *:after, *:before
   -webkit-box-sizing: border-box
@@ -147,16 +136,16 @@ nav a.active
 .topHeroes .module
   padding: 20px
   text-align: center
-  color: #eee
+  color: $color-white
   max-height: 120px
   min-width: 120px
   background-color: #607d8b
   border-radius: 2px
 
 .topHeroes .module:hover
-  background-color: #eee
+  background-color: $bg-color-white__a
   cursor: pointer
-  color: #607d8b
+  color: $color-blue-grey
 
 .topHeroes .grid-pad
   padding: 10px 0
@@ -174,6 +163,8 @@ nav a.active
     margin: 0
   .module
     min-width: 60px
+
+/* Style for a hero details component */
 .heroesDetails
   margin-bottom: 2%
 
@@ -181,7 +172,7 @@ nav a.active
   display: inline-block
   width: 3em
   margin: .5em 0
-  color: #607D8B
+  color: $color-blue-grey
   font-weight: bold
 
 .heroesDetails input
@@ -192,17 +183,29 @@ nav a.active
 .heroesDetails button
   margin-top: 20px
   font-family: $font-family__default
-  background-color: #eee
+  background-color: $bg-color-white__a
   border: none
   padding: 5px 10px
   border-radius: 4px
   cursor: pointer
 
-
 .heroesDetails button:hover
-  background-color: #cfd8dc
+  background-color: $bg-color-white__b
 
 .heroesDetails button:disabled
-  background-color: #eee
-  color: #ccc
+  background-color: $bg-color-white__a
+  color: $color-white-light-grey
   cursor: auto
+
+/* Style for a navigation group component*/
+.navBar .ui-menubar
+  border-bottom: 1px solid $border-color-white
+  border-radius: 0
+
+.navBar .ui-menuitem .ui-state-active
+  background-color: $b-navigation-color--is-selected
+
+.g-wrapper
+  margin-top: 2em
+  padding-right: 2em
+  padding-left: 2em

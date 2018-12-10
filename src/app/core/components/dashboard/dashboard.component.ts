@@ -26,8 +26,8 @@ export class DashboardComponent {
 
 
   private getHeroes() {
-    this.heroesService.findHeroes().subscribe((heroes: Hero[]) => {
-      this.topHeroes = heroes.slice(1, 5);
+    this.heroesService.findAll().subscribe((heroes: Hero[]) => {
+      this.topHeroes = heroes.slice(0, 4);
     });
   }
 
