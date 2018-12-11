@@ -41,8 +41,8 @@ export abstract class BaseService<T> {
 
   /**
    * Create the object
-   * @param {T} obj Object to create
-   * @returns {Observable<T>} Observable of the result
+   * @param  obj Object to create
+   * @returns Observable<T> Observable of the result
    */
   public create(obj: T | T[]): Observable<T | T[]> {
     return this._httpClient.post<T | T[]>(this._baseUrl, obj);
@@ -50,9 +50,9 @@ export abstract class BaseService<T> {
 
   /**
    * Update the object
-   * @param {T} obj Object to update
-   * @param {K} key Key to identify the object
-   * @returns {Observable<T>} Observable of the result
+   * @param obj Object to update
+   * @param key Key to identify the object
+   * @returns Observable<T> Observable of the result
    */
   public update<K extends keyof T>(obj: T, key: K): Observable<T> {
     return this._httpClient.put<T>(`${this._baseUrl}/${obj[key]}`, obj);
@@ -61,7 +61,7 @@ export abstract class BaseService<T> {
   /**
    * Delete a specific object by id
    * @param id Object id
-   * @returns {Observable<T>} Observable of the result
+   * @returns Observable<T> Observable of the result
    */
   public remove(id: any): Observable<T> {
     return this._httpClient.delete<T>(`${this._baseUrl}/${id}`);
