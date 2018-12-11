@@ -4,6 +4,7 @@ import {HeroesServices} from '../../services/heroes.services';
 import {Router} from '@angular/router';
 import {paths} from '../../../app-settings-definitions/path.definition';
 import {BroadcasterService} from '../../../core/services/broadcaster.service';
+import {LoggerService} from '../../../core/services/logger.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +17,14 @@ export class DashboardComponent {
   constructor(private heroesService: HeroesServices,
               private router: Router,
               private _broadcastService: BroadcasterService,
-              private _changeDetectorRef: ChangeDetectorRef) {
+              private _changeDetectorRef: ChangeDetectorRef,
+              private _loggerService: LoggerService) {
     this.getHeroes();
     this._broadcastService.on('loco')
       .subscribe((visible) => {
-        console.log(visible);
+        this._loggerService.info(visible);
       }, error2 => {
-        console.log(error2);
+        this._loggerService.info(error2);
       });
   }
 
@@ -37,8 +39,8 @@ export class DashboardComponent {
   public goToHeroDetail(id) {
     this.router.navigate([`${paths.heroes}/${paths.detail}`, id])
       .catch(err => {
-        console.log(`Error navigating to ${paths.detail}`);
-        console.log(err);
+        this._loggerService.info(`Error navigating to ${paths.heroes}/${paths.detail}`);
+        this._loggerService.info(err);
       });
   }
 }

@@ -4,6 +4,8 @@ import {SharedModule} from '../shared/shared.module';
 import {DashboardComponent} from '../public/components/dashboard/dashboard.component';
 import {BroadcasterService} from './services/broadcaster.service';
 import {NavigationGroupComponent} from './components/navigation-group/navigation-group.component';
+import {loggerFactory} from './factories/logger.factory';
+import {LoggerService} from './services/logger.service';
 
 const coreComponents = [
   DashboardComponent,
@@ -14,7 +16,10 @@ const coreComponents = [
   imports: [SharedModule],
   exports: coreComponents,
   declarations: coreComponents,
-  providers: [BroadcasterService],
+  providers: [
+    BroadcasterService,
+    {provide: LoggerService, useFactory: loggerFactory}
+  ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class CoreModule {

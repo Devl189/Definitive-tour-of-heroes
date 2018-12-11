@@ -4,6 +4,7 @@ import {HeroesServices} from '../../services/heroes.services';
 import {paths} from '../../../app-settings-definitions/path.definition';
 import {Router} from '@angular/router';
 import {CommonUtil} from '../../../core/utiles/common.utiles';
+import {LoggerService} from '../../../core/services/logger.service';
 
 @Component({
   selector: 'app-heroes',
@@ -18,7 +19,8 @@ export class HeroesComponent {
 
   constructor(private heroesService: HeroesServices,
               private router: Router,
-              private _changeDetectorRef: ChangeDetectorRef) {
+              private _changeDetectorRef: ChangeDetectorRef,
+              private _loggerService: LoggerService) {
     this.getHeroes();
   }
 
@@ -32,16 +34,16 @@ export class HeroesComponent {
   public goToHeroDetail(id): void {
     this.router.navigate([`${paths.heroes}/${paths.detail}`, id])
       .catch(err => {
-        console.log(`Error navigating to ${paths.detail}`);
-        console.log(err);
+        this._loggerService.info(`Error navigating to ${paths.detail}`);
+        this._loggerService.info(err);
       });
   }
 
   public goDashboad(): void {
     this.router.navigate([paths.dashboard])
       .catch(err => {
-        console.log(`Error navigating to ${paths.detail}`);
-        console.log(err);
+        this._loggerService.info(`Error navigating to ${paths.dashboard}`);
+        this._loggerService.info(err);
       });
   }
 

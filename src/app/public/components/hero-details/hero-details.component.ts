@@ -3,6 +3,7 @@ import {Hero} from '../../../core/models/core-api';
 import {HeroesServices} from '../../services/heroes.services';
 import {ActivatedRoute, Router} from '@angular/router';
 import {paths} from '../../../app-settings-definitions/path.definition';
+import {LoggerService} from '../../../core/services/logger.service';
 
 @Component({
   selector: 'app-hero-detail',
@@ -16,7 +17,8 @@ export class HeroDetailComponent {
   constructor(private heroesService: HeroesServices,
               private _route: ActivatedRoute,
               private router: Router,
-              private _changeDetectorRef: ChangeDetectorRef) {
+              private _changeDetectorRef: ChangeDetectorRef,
+              private _loggerService: LoggerService) {
     this.getHeroDetails();
   }
 
@@ -33,8 +35,8 @@ export class HeroDetailComponent {
   public goBack(): void {
     this.router.navigate([paths.heroes])
       .catch(err => {
-        console.log(`Error navigating to ${paths.heroes}`);
-        console.log(err);
+        this._loggerService.info(`Error navigating to ${paths.heroes}`);
+        this._loggerService.info(err);
       });
   }
 

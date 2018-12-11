@@ -1,3 +1,5 @@
+import {LoggerTypes} from '../app/core/factories/logger.type';
+
 const server = 'http://localhost:3000/';
 
 export const environment = {
@@ -8,4 +10,7 @@ export const environment = {
   buildTimestamp: new Date().toISOString(),
   // Defines the default language for translations
   defaultLanguage: 'en',
+  apiConfig: {
+    loggerService: LoggerTypes.NONE
+  }
 };
