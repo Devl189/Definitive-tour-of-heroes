@@ -1,3 +1,14 @@
 {
-  "tour_of_heroes": "Tour of heroes"
+  "tour_of_heroes": "Tour of heroes",
+  "top_heroes": "Top Heroes",
+  "my_heroes": "My Heroes",
+  "go_to_dashboard": "Go to dashboard",
+  "delete_hero": "Delete hero",
+  "add_new_hero": "Add new hero",
+  "name": "Name",
+  "hero_name": "hero name",
+  "save_new_hero": "Save new hero",
+  "details": "Details",
+  "go_to_hero_list": "Go to hero list",
+  "save": "Save"
 }

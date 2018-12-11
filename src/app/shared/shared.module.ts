@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import {MenubarModule} from 'primeng/menubar';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/primeng';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   /* CommonModule --> Exports all the basic Angular directives and pipes, such as NgIf, NgForOf, DecimalPipe, and so on.
@@ -11,8 +12,8 @@ import {InputTextModule} from 'primeng/primeng';
    when you create a new app with the CLI new command. */
   /* FormsModule --> Exports the required providers and directives for template-driven forms,
   making them available for import by NgModules that import this module.*/
-  imports: [MenubarModule, ButtonModule, InputTextModule],
-  exports: [CommonModule, FormsModule, MenubarModule, ButtonModule],
+  imports: [TranslateModule, MenubarModule, ButtonModule, InputTextModule],
+  exports: [TranslateModule, CommonModule, FormsModule, MenubarModule, ButtonModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class SharedModule {

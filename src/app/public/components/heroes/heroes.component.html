@@ -1,5 +1,5 @@
-<h2>My Heroes</h2>
-<p-button (click)="goDashboad()" class="buttonGoToDashboard" label="Go to dashboard">
+<h2>{{'my_heroes' | translate}}</h2>
+<p-button (click)="goDashboad()" class="buttonGoToDashboard" label="{{'go_to_dashboard' | translate}}">
 </p-button>
 
 <ul class="ui-g heroes" *ngFor="let hero of heroes">
@@ -10,21 +10,21 @@
       </a>
     </li>
   </div>
-  <div class="ui-g-1">
+  <div class="ui-g-2">
     <p-button (click)="deleteHero(hero.id)" class="deleteButton"
-              label="Delete hero" styleClass="ui-button-danger">
+              label="{{'delete_hero' | translate}}" styleClass="ui-button-danger">
     </p-button>
   </div>
 </ul>
 
-<p-button (click)="showDataHero()" class="addNewHeroButton" label="+ Add new hero"></p-button>
+<p-button (click)="showDataHero()" class="addNewHeroButton" label="+ {{'add_new_hero' | translate}}"></p-button>
 
 <div *ngIf="showAddNewHero" class="infoNewHero">
-  <label>Name:
-    <input [(ngModel)]="heroName" placeholder="hero name"/>
+  <label>{{'name' | translate}}:
+    <input [(ngModel)]="heroName" placeholder="{{'hero_name' | translate}}"/>
   </label>
 
-  <button pButton label="Save new hero"
+  <button pButton label="{{'save_new_hero' | translate}}"
           (click)="addNewHero()" class="saveNewHeroButton" [disabled]="isEmptyHeroName()">
   </button>
 </div>

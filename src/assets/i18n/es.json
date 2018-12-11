@@ -1,3 +1,14 @@
 {
-  "tour_of_heroes": "Tour de heroes"
+  "tour_of_heroes": "Tour de heroes",
+  "top_heroes": "Top Heroes",
+  "my_heroes": "Mis Heroes",
+  "go_to_dashboard": "Ir a dashboard",
+  "delete_hero": "Eliminar heroe",
+  "add_new_hero": "Añadir nuevo heroe",
+  "name": "Nombre",
+  "hero_name": "nombre del heroe",
+  "save_new_hero": "Guardar nuevo heroe",
+  "details": "Detalles",
+  "go_to_hero_list": "Ir a la lista de heroes",
+  "save": "Guardar"
 }
