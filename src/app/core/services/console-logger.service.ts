@@ -7,6 +7,7 @@ const noop = (): any => undefined;
 export class ConsoleLoggerService implements Logger {
 
   get info() {
+    // tslint:disable-next-line:no-console
     return console.info.bind(console);
   }
 
