@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {Hero} from '../../../core/models/core-api';
 import {HeroesServices} from '../../services/heroes.services';
 import {paths} from '../../../app-settings-definitions/path.definition';
@@ -7,7 +7,8 @@ import {CommonUtil} from '../../../core/utiles/common.utiles';
 
 @Component({
   selector: 'app-heroes',
-  templateUrl: './heroes.component.html'
+  templateUrl: './heroes.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroesComponent {
 
@@ -16,13 +17,15 @@ export class HeroesComponent {
   public heroName: string;
 
   constructor(private heroesService: HeroesServices,
-              private router: Router) {
+              private router: Router,
+              private _changeDetectorRef: ChangeDetectorRef) {
     this.getHeroes();
   }
 
   private getHeroes(): void {
     this.heroesService.findAll().subscribe((heroes: Hero[]) => {
       this.heroes = heroes;
+      this._changeDetectorRef.markForCheck();
     });
   }
 
