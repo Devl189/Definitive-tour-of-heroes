@@ -23,7 +23,7 @@ export class HeroDetailComponent {
     });
   }
 
-  goBack(): void {
+  public goBack(): void {
     this.router.navigate([paths.heroes])
       .catch(err => {
         console.log(`Error navigating to ${paths.heroes}`);
@@ -31,7 +31,7 @@ export class HeroDetailComponent {
       });
   }
 
-  save() {
+  public save(): void {
     this.heroesService.update(this.hero, 'id').subscribe( hero => {
         this.hero = hero;
       }

@@ -20,13 +20,13 @@ export class HeroesComponent {
     this.getHeroes();
   }
 
-  private getHeroes() {
+  private getHeroes(): void {
     this.heroesService.findAll().subscribe((heroes: Hero[]) => {
       this.heroes = heroes;
     });
   }
 
-  public goToHeroDetail(id) {
+  public goToHeroDetail(id): void {
     this.router.navigate([`${paths.heroes}/${paths.detail}`, id])
       .catch(err => {
         console.log(`Error navigating to ${paths.detail}`);
@@ -34,7 +34,7 @@ export class HeroesComponent {
       });
   }
 
-  public goDashboad() {
+  public goDashboad(): void {
     this.router.navigate([paths.dashboard])
       .catch(err => {
         console.log(`Error navigating to ${paths.detail}`);
@@ -42,7 +42,7 @@ export class HeroesComponent {
       });
   }
 
-  public addNewHero() {
+  public addNewHero(): void {
     const newHero: Hero = new Hero();
     newHero.name = this.heroName;
     this.heroesService.create(newHero).subscribe(() => {
@@ -53,17 +53,17 @@ export class HeroesComponent {
     );
   }
 
-  public showDataHero() {
+  public showDataHero(): void {
     this.showAddNewHero = !this.showAddNewHero;
   }
 
-  public deleteHero(id) {
+  public deleteHero(id): void {
     this.heroesService.remove(id).subscribe(() => {
       this.getHeroes();
     });
   }
 
-  public isEmptyHeroName() {
+  public isEmptyHeroName(): boolean {
     return CommonUtil.isEmpty(this.heroName);
   }
 }
