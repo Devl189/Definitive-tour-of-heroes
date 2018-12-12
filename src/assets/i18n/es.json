@@ -10,5 +10,6 @@
   "save_new_hero": "Guardar nuevo heroe",
   "details": "Detalles",
   "go_to_hero_list": "Ir a la lista de heroes",
-  "save": "Guardar"
+  "save": "Guardar",
+  "go_to_top": "Ir arriba"
 }

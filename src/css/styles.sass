@@ -205,3 +205,22 @@ nav a.active
   margin-top: 2em
   padding-right: 2em
   padding-left: 2em
+
+/* bottom actions */
+#scrollToTop
+  display: none
+  &.scrollToTop-displayed
+    &:before
+      content: "\25B2"
+    position: fixed
+    bottom: 1em
+    right: 1em
+    z-index: 99
+    padding: 0
+    width: calc( 3em - 4px)
+    height: calc( 3em - 4px)
+    margin-bottom: 0
+    opacity: 0.5
+    display: inline
+    &:hover
+      opacity: 1
