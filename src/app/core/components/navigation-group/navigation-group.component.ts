@@ -1,26 +1,24 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import {MenusServices} from '../../../public/services/menus.services';
 
 @Component({
   selector: 'app-navigation-group',
-  templateUrl: './navigation-group.component.html'
+  templateUrl: './navigation-group.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class NavigationGroupComponent {
-  public menuItems: MenuItem[];
+  public menuItems: MenuItem[] = [];
 
-  constructor() {
-    this.menuItems = [
-      {
-        label: 'Top Heroes',
-        routerLinkActiveOptions: {exact: true},
-        routerLink: 'dashboard'
-      },
-      {
-        label: 'List of Heroes',
-        icon: 'pi pi-fw pi-pencil',
-        routerLinkActiveOptions: {exact: true},
-        routerLink: 'heroes'
-      }
-    ];
+  constructor(private menusService: MenusServices,
+              private _changeDetectorRef: ChangeDetectorRef) {
+    this.getMenuItems();
+  }
+
+  private getMenuItems() {
+    this.menusService.findAll().subscribe((menuItems: MenuItem[]) => {
+      this.menuItems = menuItems;
+      this._changeDetectorRef.markForCheck();
+    });
   }
 }
