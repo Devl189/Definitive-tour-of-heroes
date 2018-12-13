@@ -20,7 +20,9 @@ export class DashboardComponent {
               private _changeDetectorRef: ChangeDetectorRef,
               private _loggerService: LoggerService) {
     this.getHeroes();
-    this._broadcastService.on('loco')
+
+    // proof of concept of data reception for broadcast service
+    this._broadcastService.on('serviceTest')
       .subscribe((visible) => {
         this._loggerService.info(visible);
       }, error2 => {
@@ -28,15 +30,16 @@ export class DashboardComponent {
       });
   }
 
-
-  private getHeroes() {
+  // gets all the heroes and gets the first 4.
+  private getHeroes(): void {
     this.heroesService.findAll().subscribe((heroes: Hero[]) => {
       this.topHeroes = heroes.slice(0, 4);
       this._changeDetectorRef.markForCheck();
     });
   }
 
-  public goToHeroDetail(id) {
+  // navigates to the details of a particular hero from his identifier
+  public goToHeroDetail(id): void {
     this.router.navigate([`${paths.heroes}/${paths.detail}`, id])
       .catch(err => {
         this._loggerService.info(`Error navigating to ${paths.heroes}/${paths.detail}`);

@@ -15,6 +15,7 @@ export class AppComponent {
     translate.setDefaultLang(defaultLanguage);
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     translate.use(localStorage['language'] || defaultLanguage);
-    this._broadcastService.broadcast('loco', true);
+    // proof of concept of data transmission for broadcast service
+    this._broadcastService.broadcast('serviceTest', true);
   }
 }

@@ -15,6 +15,7 @@ export class NavigationGroupComponent {
     this.getMenuItems();
   }
 
+  // gets the list of sections that make up the top menu of the application
   private getMenuItems() {
     this.menusService.findAll().subscribe((menuItems: MenuItem[]) => {
       this.menuItems = menuItems;

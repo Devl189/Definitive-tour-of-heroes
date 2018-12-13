@@ -22,12 +22,14 @@ export class HeroDetailComponent {
               private _changeDetectorRef: ChangeDetectorRef,
               private _loggerService: LoggerService,
               private fb: FormBuilder) {
+    // inizialization of the property of the reactive form
     this.heroForm = this.fb.group({
       'heroname': new FormControl('', Validators.required)
     });
     this.getHeroDetails();
   }
 
+  // obtains information about a particular hero from his identifier
   private getHeroDetails(): void {
     this._route.params.subscribe(params => {
       const id = params['id'];
@@ -39,7 +41,8 @@ export class HeroDetailComponent {
     });
   }
 
-  public goBack(): void {
+  // navigate to the list where all the heroes are shown
+  public goToHeroList(): void {
     this.router.navigate([paths.heroes])
       .catch(err => {
         this._loggerService.info(`Error navigating to ${paths.heroes}`);
@@ -47,6 +50,7 @@ export class HeroDetailComponent {
       });
   }
 
+  // saves the changes made to the selected hero
   public onSave(value: any): void {
     this.hero.name = value.heroname;
     this.heroesService.update(this.hero, 'id').subscribe(hero => {
@@ -55,6 +59,7 @@ export class HeroDetailComponent {
     );
   }
 
+  // updates the value of a particular field in the reactive form
   private updateHero() {
     this.heroForm.setValue({['heroname']: this.hero.name});
   }

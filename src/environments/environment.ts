@@ -9,6 +9,7 @@ export const environment = {
   // is used to define whether or not the project is in production
   production: false,
   envName: 'local',
+  // defines the url where the http requests will be made
   server: server,
   buildVersion: '1.0.0-SNAPSHOT',
   buildTimestamp: new Date().toISOString(),
@@ -19,12 +20,3 @@ export const environment = {
     loggerService: LoggerTypes.CONSOLE
   }
 };
-
-/*
- * For easier debugging in development mode, you can import the following file
- * to ignore zone related error stack frames such as `zone.run`, `zoneDelegate.invokeTask`.
- *
- * This import should be commented out in production mode because it will have a negative impact
- * on performance if an error is thrown.
- */
-// import 'zone.js/dist/zone-error';  // Included with Angular CLI.

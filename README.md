@@ -6,15 +6,23 @@ This project is based on the example application of the official angular web ["T
 
 ## Main project structure
 
+- enviroments --> In this module you will find all the environment variables of configuration of our environments (local and production).
+
+- css --> This module defines the style of the components of the application and the variables used in those styles.
+
+- assets --> In this module you will find the json files of all the languages that you want to add in the application, in this case there is only English and Spanish.
+
+- app/app-settings-definitions --> in this module the variables that define the paths and endpoints of the application are defined.
+
 - app/shared --> This is the module where I keep small stuff that every other module will need. I have 3 submodules there directives, components and pipes, just to keep things organized a little better.
 
-- app/public --> In this module I keep public routes and top-level components.
+- app/public --> In this module I keep public routes, public services and top-level components of public character.
 
-- app/core --> Services and components that app needs (and cannot work without) go here.
+- app/core --> Services and components that app needs (and cannot work without) go here. There are also factories, guards, models and utils necessary to operate.
 
 - app/protected --> Similar to public, only for authorized users. This module has protected routes and top-level components.
 
-more info --> [StackOverflow](https://stackoverflow.com/questions/42779871/angular-core-feature-shared-modules-what-goes-where)
+more information about module structure --> [StackOverflow](https://stackoverflow.com/questions/42779871/angular-core-feature-shared-modules-what-goes-where)
 
 ## DB and microservices
 
@@ -24,6 +32,7 @@ To simulate the BD and microservices of the application [json-service](https://g
 ## Translations
 
 For application translations [ngx-translate/core](https://github.com/ngx-translate/core#installation) is being used, for more information visit your github.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

@@ -21,6 +21,7 @@ export class BottomActionsComponent {
     this._renderer[targetAction](targetElement, goTopBtnClass);
   }
 
+  // takes the scroll from the page to the top
   goTop() {
     window.scrollTo(0, 0);
   }

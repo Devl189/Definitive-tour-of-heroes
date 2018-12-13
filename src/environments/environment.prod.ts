@@ -8,7 +8,6 @@ export const environment = {
   server: server,
   buildVersion: '1.0.0-SNAPSHOT',
   buildTimestamp: new Date().toISOString(),
-  // Defines the default language for translations
   defaultLanguage: 'en',
   apiConfig: {
     loggerService: LoggerTypes.NONE

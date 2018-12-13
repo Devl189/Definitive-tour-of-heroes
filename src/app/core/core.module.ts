@@ -24,6 +24,7 @@ const coreComponents = [
 })
 export class CoreModule {
   constructor(@Optional() @SkipSelf() coreModule: CoreModule) {
+    // prevents the core module from being instantiated multiple times
     throwIfAlreadyLoaded(coreModule, 'CoreModule');
   }
 }
