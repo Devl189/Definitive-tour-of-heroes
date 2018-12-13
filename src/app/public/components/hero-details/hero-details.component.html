@@ -1,24 +1,30 @@
-<div *ngIf="hero" class="heroesDetails">
-  <div class="ui-g">
-    <div class="ui-g-4">
-      <div class="ui-g-10" style="margin-left: -3%;">
-        <h2>{{hero.name| uppercase }} {{'details' | translate | uppercase}}</h2>
+<div *ngIf="hero">
+  <form [formGroup]="heroForm" (ngSubmit)="onSave(heroForm.value)">
+    <p-panel>
+      <p-header>
+      <span class="ui-panel-title" style="font-size:16px;display:inline-block;margin-top:0.4%">
+        {{'id' | translate}}: {{hero?.id}} - {{hero?.name| uppercase }}
+      </span>
+        <p-button (click)="goBack()" class="buttonGoToHeroList" label="{{'go_to_hero_list' | translate}}"></p-button>
+      </p-header>
+      <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0">
+        <div class="ui-grid-row">
+          <div class="ui-grid-col-1 heroesDetailsLabel">{{'hero_name_first_letter_in_capital_letters' | translate}} *:</div>
+          <div class="ui-grid-col-2">
+            <input pInputText type="text"
+                   class="ng-pristine ng-invalid ui-inputtext ui-corner-all ui-state-default ui-widget ng-touched"
+                   formControlName="heroname" placeholder="{{'required' | translate}}"/>
+          </div>
+          <div class="ui-grid-col-1">
+            <p-button type="submit" [disabled]="!heroForm.valid" label="{{'save' |translate}}"></p-button>
+          </div>
+          <div class="ui-grid-col-4">
+            <p-message severity="error" text="{{'message_name_error' | translate}}"
+                       *ngIf="!heroForm.controls['heroname'].valid&&heroForm.controls['heroname'].dirty">
+            </p-message>
+          </div>
+        </div>
       </div>
-      <div class="ui-g-2" style="margin-top: 2.5%;">
-        <span>ID: {{hero.id}}</span>
-      </div>
-    </div>
-    <div class="ui-g-4">
-      <p-button (click)="goBack()" class="buttonGoToHeroList" label="{{'go_to_hero_list' | translate}}"></p-button>
-    </div>
-  </div>
-  <div class="ui-g">
-    <div class="ui-g-3">
-      <label class="first">{{'name' | translate}}: </label>
-      <input id="input" type="text" size="20" pInputText [(ngModel)]="hero.name" placeholder="{{'hero_name' | translate}}">
-    </div>
-    <div class="ui-g-2">
-      <p-button (click)="save(event)" label="{{'save' |translate}}"></p-button>
-    </div>
-  </div>
+    </p-panel>
+  </form>
 </div>

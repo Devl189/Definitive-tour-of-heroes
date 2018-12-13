@@ -46,13 +46,17 @@
   "menus": [
     {
       "label": "Top Heroes",
-      "routerLinkActiveOptions": {"exact": true},
+      "routerLinkActiveOptions": {
+        "exact": true
+      },
       "routerLink": "dashboard"
     },
     {
       "label": "List of Heroes",
       "icon": "pi pi-fw pi-pencil",
-      "routerLinkActiveOptions": {"exact": true},
+      "routerLinkActiveOptions": {
+        "exact": true
+      },
       "routerLink": "heroes"
     }
   ]

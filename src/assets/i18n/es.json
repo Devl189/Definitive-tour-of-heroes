@@ -11,5 +11,9 @@
   "details": "Detalles",
   "go_to_hero_list": "Ir a la lista de heroes",
   "save": "Guardar",
-  "go_to_top": "Ir arriba"
+  "go_to_top": "Ir arriba",
+  "id": "ID",
+  "hero_name_first_letter_in_capital_letters": "Nombre Heroe",
+  "required": "Requerido",
+  "message_name_error": "El nombre del heroe es obligatorio"
 }

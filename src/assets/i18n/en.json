@@ -11,5 +11,9 @@
   "details": "Details",
   "go_to_hero_list": "Go to hero list",
   "save": "Save",
-  "go_to_top": "Go to top"
+  "go_to_top": "Go to top",
+  "id": "ID",
+  "hero_name_first_letter_in_capital_letters": "Hero Name",
+  "required": "Required",
+  "message_name_error": "Hero name is required"
 }

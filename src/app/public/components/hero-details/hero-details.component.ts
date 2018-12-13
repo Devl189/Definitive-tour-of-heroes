@@ -4,6 +4,7 @@ import {HeroesServices} from '../../services/heroes.services';
 import {ActivatedRoute, Router} from '@angular/router';
 import {paths} from '../../../app-settings-definitions/path.definition';
 import {LoggerService} from '../../../core/services/logger.service';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-hero-detail',
@@ -13,12 +14,17 @@ import {LoggerService} from '../../../core/services/logger.service';
 export class HeroDetailComponent {
 
   public hero: Hero;
+  heroForm: FormGroup;
 
   constructor(private heroesService: HeroesServices,
               private _route: ActivatedRoute,
               private router: Router,
               private _changeDetectorRef: ChangeDetectorRef,
-              private _loggerService: LoggerService) {
+              private _loggerService: LoggerService,
+              private fb: FormBuilder) {
+    this.heroForm = this.fb.group({
+      'heroname': new FormControl('', Validators.required)
+    });
     this.getHeroDetails();
   }
 
@@ -27,6 +33,7 @@ export class HeroDetailComponent {
       const id = params['id'];
       this.heroesService.findById(id).subscribe(hero => {
         this.hero = hero;
+        this.updateHero();
         this._changeDetectorRef.markForCheck();
       });
     });
@@ -40,10 +47,15 @@ export class HeroDetailComponent {
       });
   }
 
-  public save(): void {
-    this.heroesService.update(this.hero, 'id').subscribe( hero => {
+  public onSave(value: any): void {
+    this.hero.name = value.heroname;
+    this.heroesService.update(this.hero, 'id').subscribe(hero => {
         this.hero = hero;
       }
     );
+  }
+
+  private updateHero() {
+    this.heroForm.setValue({['heroname']: this.hero.name});
   }
 }
