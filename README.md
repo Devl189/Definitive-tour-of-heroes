@@ -2,11 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.0.
 
-This project is based on the example application of the official angular web ["Tour of heroes"](https://angular.io/tutorial) but with a correct structuring of all its files and with some extra functionality added for production environments.
+It is based on the example application of the official angular web ["Tour of heroes"](https://angular.io/tutorial) but with a correct structuring of all its files and with some extra functionality added for production environments.
 
 ## Main project structure
 
-- enviroments --> In this module you will find all the environment variables of configuration of our environments (local and production).
+- enviroments --> In this module you will find all the environment variables of configuration(local and production).
 
 - css --> This module defines the style of the components of the application and the variables used in those styles.
 
@@ -14,19 +14,19 @@ This project is based on the example application of the official angular web ["T
 
 - app/app-settings-definitions --> in this module the variables that define the paths and endpoints of the application are defined.
 
-- app/shared --> This is the module where I keep small stuff that every other module will need. I have 3 submodules there directives, components and pipes, just to keep things organized a little better.
+- app/shared --> This is the module where I keep small stuff that every other module will need. I have 3 submodules there: directives, components and pipes, just to keep things organized a little bit better.
 
 - app/public --> In this module I keep public routes, public services and top-level components of public character.
 
-- app/core --> Services and components that app needs (and cannot work without) go here. There are also factories, guards, models and utils necessary to operate.
+- app/core --> Services and components the app needs (and cannot work without) go here. There are also factories, guards, models and utils necessary to operate.
 
 - app/protected --> Similar to public, only for authorized users. This module has protected routes and top-level components.
 
-more information about module structure --> [StackOverflow](https://stackoverflow.com/questions/42779871/angular-core-feature-shared-modules-what-goes-where)
+More information about module structure --> [StackOverflow](https://stackoverflow.com/questions/42779871/angular-core-feature-shared-modules-what-goes-where)
 
 ## DB and microservices
 
-To simulate the BD and microservices of the application [json-service](https://github.com/typicode/json-server) is being used, this allows to make the same http requests that we could make to a real system of microservices and stores the data that we introduce in a JSON. The commands for its installation and use are in the "src/db.json" or directly in the project github.
+To simulate the DB and microservices of the application [json-service](https://github.com/typicode/json-server) is being used. This allows to make the same http requests that we could make to a real system of microservices and stores the data that we introduce in a JSON. The commands for its installation and use are in the "src/db.json" or directly in the project github.
 
 
 ## Translations
